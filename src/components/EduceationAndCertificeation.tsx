@@ -55,7 +55,7 @@ const FormInput: React.FC<FormInputProps> = ({
     index 
 }) => (
     <div className={`flex flex-col ${fullWidth ? 'w-full' : 'w-full'}`}>
-        <label htmlFor={`${name}-${index}`} className="text-sm font-medium text-gray-800 mb-1">
+        <label htmlFor={`${name}-${index}`} className="text-sm font-medium  text-secondary  mb-1">
             {label}
         </label>
         <input
@@ -65,7 +65,7 @@ const FormInput: React.FC<FormInputProps> = ({
             value={value}
             placeholder={placeholder}
             onChange={(e) => onChange && onChange(name, e.target.value)}
-            className="w-full border border-gray-300 rounded-lg h-10 px-3 focus:outline-none focus:border-gray-500 placeholder:text-gray-500 placeholder:font-normal placeholder:text-xs"
+            className="w-full border font-normal text-[12px] text-secondary border-gray-300 rounded-lg h-10 px-3 focus:outline-none focus:border-gray-500 placeholder: text-secondary-500 placeholder:font-normal placeholder:text-xs"
         />
     </div>
 );
@@ -92,10 +92,10 @@ const DateInput: React.FC<DateInputProps> = ({
                 value={value}
                 onChange={(e) => onChange && onChange(name, e.target.value)}
                 placeholder={placeholder}
-                className="w-full border text-[12px] font-normal text-secondary border-gray-300 rounded-lg h-10 px-3 focus:outline-none focus:border-gray-500 appearance-none placeholder:text-gray-500 placeholder:font-normal placeholder:text-xs"
+                className="w-full border text-[12px] font-normal text-secondary border-gray-300 rounded-lg h-10 px-3 focus:outline-none focus:border-gray-500 appearance-none placeholder: text-secondary-500 placeholder:font-normal placeholder:text-xs"
             />
             {/* Calendar Icon */}
-            <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none text-gray-700">
+            <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none  text-secondary-700">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                     <path d="M6.5 7a.5.5 0 0 0-.5.5v2a.5.5 0 0 0 .5.5h2a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 0-.5-.5h-2z"/>
                     <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
@@ -127,7 +127,7 @@ const FileUploadArea: React.FC = () => {
 
     return (
         <div className="flex flex-col w-full">
-            <label className="text-sm font-medium text-gray-800 mb-1">
+            <label className="text-sm font-medium  text-secondary-800 mb-1">
                 Achievements
             </label>
             <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center h-[180px] flex flex-col items-center justify-center">
@@ -142,7 +142,7 @@ const FileUploadArea: React.FC = () => {
 
                 {fileName ? (
                     <div className="text-center">
-                        <p className="text-gray-900 font-medium mb-1 truncate max-w-xs">{fileName}</p>
+                        <p className=" text-secondary-900 font-medium mb-1 truncate max-w-xs">{fileName}</p>
                         <p className="text-xs text-green-600 mb-3">File selected successfully.</p>
                         <button 
                             type="button" 
@@ -154,15 +154,15 @@ const FileUploadArea: React.FC = () => {
                     </div>
                 ) : (
                     <>
-                        <svg className="w-8 h-8 text-gray-400 mb-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <svg className="w-8 h-8  text-secondary-400 mb-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
                         </svg>
-                        <p className="text-gray-500 mb-1">Drop file or browse</p>
-                        <p className="text-xs text-gray-400 mb-3">Format: jpg, .png & Max file size: 25 MB</p>
+                        <p className=" text-secondary-500 mb-1">Drop file or browse</p>
+                        <p className="text-xs  text-secondary-400 mb-3">Format: jpg, .png & Max file size: 25 MB</p>
                         <button 
                             type="button"
                             onClick={handleButtonClick}
-                            className="bg-gray-100 text-gray-700 text-sm font-medium py-1.5 px-4 rounded-lg hover:bg-gray-200 transition"
+                            className="bg-gray-100  text-secondary-700 text-sm font-medium py-1.5 px-4 rounded-lg hover:bg-gray-200 transition"
                         >
                             Browse Files
                         </button>
@@ -242,7 +242,7 @@ const DegreeForm: React.FC<EducationFormProps> = ({ index, education, onDelete }
     );
 };
 
-// --- Certification Form ---
+ 
 // --- Certification Form ---
 const CertificationForm: React.FC<CertificationFormProps> = ({ index, certification, onDelete }) => {
     const dispatch = useDispatch();

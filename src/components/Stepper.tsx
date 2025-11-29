@@ -63,12 +63,12 @@ export default function Stepper() {
             {step.id > currentStepId && ( 
               <div onClick={() => goToStep(step.id)} className="group flex flex-col items-center cursor-pointer">
                 <span className="flex items-center justify-center h-8 w-8 rounded-full border-2 border-gray-300 group-hover:border-gray-400 transition">
-                  <span className="text-sm font-medium text-secondary group-hover:text-gray-600">
+                  <span className="text-sm font-medium text-secondary group-hover: text-secondary-600">
                     {step.id}
                   </span>
                 </span>
         
-                <span className="mt-2 w-20 text-center text-xs font-medium text-secondary group-hover:text-gray-600 transition">
+                <span className="mt-2 w-20 text-center text-xs font-medium text-secondary group-hover: text-secondary-600 transition">
                   {step.name}
                 </span>
               </div>

@@ -43,7 +43,7 @@ const ReviewAndDownload: React.FC = () => {
         
         {/* Header Section */}
         <div className="border-b-2 border-gray-800 pb-6 mb-6">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">
+          <h1 className="text-3xl font-bold  text-secondary-900 mb-2">
             {formData.personalInfo.firstName} {formData.personalInfo.lastName}
           </h1>
           <p className="text-lg text-secondary mb-4">
@@ -83,17 +83,17 @@ const ReviewAndDownload: React.FC = () => {
         {/* Professional Summary */}
         {formData.careerInfo.summary && (
           <div className="mb-6">
-            <h2 className="text-xl font-semibold text-gray-900 mb-3 border-b border-gray-200 pb-2">
+            <h2 className="text-xl font-semibold  text-secondary-900 mb-3 border-b border-gray-200 pb-2">
               ABOUT ME
             </h2>
-            <p className="text-gray-700 leading-relaxed">{formData.careerInfo.summary}</p>
+            <p className=" text-secondary-700 leading-relaxed">{formData.careerInfo.summary}</p>
           </div>
         )}
 
         {/* Skills Section - Modern Pill Design */}
         {hasSkills && (
           <div className="mb-6">
-            <h2 className="text-xl font-semibold text-gray-900 mb-3 border-b border-gray-200 pb-2">
+            <h2 className="text-xl font-semibold  text-secondary-900 mb-3 border-b border-gray-200 pb-2">
               SKILLS
             </h2>
             <div className="flex flex-wrap gap-3">
@@ -103,7 +103,7 @@ const ReviewAndDownload: React.FC = () => {
                   skill && (
                     <span 
                       key={`${index}-${idx}`} 
-                      className="bg-gray-100 text-gray-700 px-3 py-2 rounded-full text-sm border border-gray-200"
+                      className="bg-gray-100  text-secondary-700 px-3 py-2 rounded-full text-sm border border-gray-200"
                     >
                       {skill}
                     </span>
@@ -117,7 +117,7 @@ const ReviewAndDownload: React.FC = () => {
         {/* Work Experience */}
         {formData.experiences.length > 0 && formData.experiences[0].jobTitle && (
           <div className="mb-6">
-            <h2 className="text-xl font-semibold text-gray-900 mb-4 border-b border-gray-200 pb-2">
+            <h2 className="text-xl font-semibold  text-secondary-900 mb-4 border-b border-gray-200 pb-2">
               WORK EXPERIENCE
             </h2>
             <div className="space-y-6">
@@ -125,13 +125,13 @@ const ReviewAndDownload: React.FC = () => {
                 <div key={exp.id} className="relative pl-6 border-l-2 border-gray-300">
                   <div className="absolute -left-1.5 top-2 w-3 h-3 bg-gray-400 rounded-full"></div>
                   <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-2">
-                    <h3 className="font-bold text-gray-900 text-lg">{exp.jobTitle}</h3>
-                    <span className="text-gray-500 text-sm bg-gray-100 px-2 py-1 rounded">
+                    <h3 className="font-bold  text-secondary-900 text-lg">{exp.jobTitle}</h3>
+                    <span className=" text-secondary-500 text-sm bg-gray-100 px-2 py-1 rounded">
                       {exp.startDate} - {exp.endDate || 'Present'}
                     </span>
                   </div>
                   <p className="text-blue-600 font-medium text-sm mb-2">{exp.companyName}</p>
-                  <p className="text-gray-700 text-sm leading-relaxed mb-3">{exp.description}</p>
+                  <p className=" text-secondary-700 text-sm leading-relaxed mb-3">{exp.description}</p>
                   {exp.skills && Array.isArray(exp.skills) && exp.skills.length > 0 && (
                     <div className="flex flex-wrap gap-2 mt-2">
                       {exp.skills.map((skill, idx) => (
@@ -150,7 +150,7 @@ const ReviewAndDownload: React.FC = () => {
         {/* Education */}
         {formData.educations.length > 0 && formData.educations[0].degree && (
           <div className="mb-6">
-            <h2 className="text-xl font-semibold text-gray-900 mb-4 border-b border-gray-200 pb-2">
+            <h2 className="text-xl font-semibold  text-secondary-900 mb-4 border-b border-gray-200 pb-2">
               EDUCATION
             </h2>
             <div className="space-y-4">
@@ -158,14 +158,14 @@ const ReviewAndDownload: React.FC = () => {
                 <div key={edu.id} className="relative pl-6 border-l-2 border-gray-300">
                   <div className="absolute -left-1.5 top-2 w-3 h-3 bg-gray-400 rounded-full"></div>
                   <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-1">
-                    <h3 className="font-bold text-gray-900">{edu.degree}</h3>
-                    <span className="text-gray-500 text-sm">
+                    <h3 className="font-bold  text-secondary-900">{edu.degree}</h3>
+                    <span className=" text-secondary-500 text-sm">
                       {edu.startDate} - {edu.endDate || 'Present'}
                     </span>
                   </div>
-                  <p className="text-gray-600 text-sm mb-1">{edu.institution}</p>
+                  <p className=" text-secondary-600 text-sm mb-1">{edu.institution}</p>
                   {edu.description && (
-                    <p className="text-gray-700 text-sm mt-1">{edu.description}</p>
+                    <p className=" text-secondary-700 text-sm mt-1">{edu.description}</p>
                   )}
                 </div>
               ))}
@@ -176,7 +176,7 @@ const ReviewAndDownload: React.FC = () => {
         {/* Certifications */}
         {formData.certifications.length > 0 && formData.certifications[0].title && (
           <div className="mb-6">
-            <h2 className="text-xl font-semibold text-gray-900 mb-4 border-b border-gray-200 pb-2">
+            <h2 className="text-xl font-semibold  text-secondary-900 mb-4 border-b border-gray-200 pb-2">
               TRAINING & CERTIFICATION
             </h2>
             <div className="space-y-4">
@@ -184,12 +184,12 @@ const ReviewAndDownload: React.FC = () => {
                 <div key={cert.id} className="relative pl-6 border-l-2 border-gray-300">
                   <div className="absolute -left-1.5 top-2 w-3 h-3 bg-gray-400 rounded-full"></div>
                   <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-1">
-                    <h3 className="font-bold text-gray-900">{cert.title}</h3>
-                    <span className="text-gray-500 text-sm">{cert.issueDate}</span>
+                    <h3 className="font-bold  text-secondary-900">{cert.title}</h3>
+                    <span className=" text-secondary-500 text-sm">{cert.issueDate}</span>
                   </div>
-                  <p className="text-gray-600 text-sm">{cert.organization}</p>
+                  <p className=" text-secondary-600 text-sm">{cert.organization}</p>
                   {cert.expiryDate && (
-                    <p className="text-gray-500 text-xs mt-1">Expires: {cert.expiryDate}</p>
+                    <p className=" text-secondary-500 text-xs mt-1">Expires: {cert.expiryDate}</p>
                   )}
                 </div>
               ))}
@@ -200,7 +200,7 @@ const ReviewAndDownload: React.FC = () => {
         {/* Co-curricular Activities */}
         {(formData.contactInfo.socialMedia.url) && (
           <div className="mb-6">
-            <h2 className="text-xl font-semibold text-gray-900 mb-4 border-b border-gray-200 pb-2">
+            <h2 className="text-xl font-semibold  text-secondary-900 mb-4 border-b border-gray-200 pb-2">
               CO-CURRICULAR ACTIVITIES
             </h2>
             <div className="flex flex-wrap gap-4 text-sm">

@@ -54,7 +54,7 @@ const SocialMediaInput: React.FC = () => {
     <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
       {/* Social Media Dropdown */}
       <div className="flex flex-col w-full col-span-1">
-        <label htmlFor="socialMedia" className="text-sm font-medium text-gray-800 mb-1">
+        <label htmlFor="socialMedia" className="text-sm font-medium  text-secondary-800 mb-1">
           Other Social Media
         </label>
         <div className="relative">
@@ -71,7 +71,7 @@ const SocialMediaInput: React.FC = () => {
             <option value="GitHub">GitHub</option>
           </select>
     
-          <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none text-gray-700">
+          <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none  text-secondary-700">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
               <path fillRule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
             </svg>
@@ -81,7 +81,7 @@ const SocialMediaInput: React.FC = () => {
 
       {/* URL Input */}
       <div className="flex flex-col w-full col-span-1 md:col-span-2">
-        <label htmlFor="socialMediaUrl" className="text-sm font-medium text-gray-800 mb-1 ml-2">
+        <label htmlFor="socialMediaUrl" className="text-sm font-medium  text-secondary-800 mb-1 ml-2">
           URL
         </label>
         <input
@@ -109,10 +109,10 @@ const ContactInformation: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <div className="mb-8">
-        <h1 className="text-4xl font-bold text-gray-900 mb-2">
+        <h1 className="text-4xl font-bold  text-secondary-900 mb-2">
           Your Contact Information
         </h1>
-        <p className="text-gray-600 text-base">
+        <p className=" text-secondary-600 text-base">
           Include additional contact details and social media links to showcase your professional presence.
         </p>
       </div>

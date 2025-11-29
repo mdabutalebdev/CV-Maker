@@ -95,7 +95,7 @@ const handleDownloadPDF = async () => {
           .text-blue-600, .text-primary {
             color: #0000ff !important;
           }
-          .text-gray-500, .text-gray-600, .text-gray-700, .text-secondary {
+          . text-secondary-500, . text-secondary-600, . text-secondary-700, .text-secondary {
             color: #666666 !important;
           }
           .border-gray-200, .border-gray-300, .border-blue-200 {
