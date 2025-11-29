@@ -127,17 +127,18 @@ const ExperienceFormSection: React.FC<ExperienceFormSectionProps> = ({
         fileInputRef.current?.click();
     };
 
-    const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const files = event.target.files;
-        if (files && files.length > 0) {
-            const fileArray = Array.from(files);
-            dispatch(updateExperienceField({ 
-                id: experience.id, 
-                field: "achievements", 
-                value: fileArray 
-            }));
-        }
-    };
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const files = event.target.files;
+    if (files && files.length > 0) {
+        const fileNames = Array.from(files).map(file => file.name); // File থেকে শুধু name
+        dispatch(updateExperienceField({ 
+            id: experience.id, 
+            field: "achievements", 
+            value: fileNames // এখন string[] ✅
+        }));
+    }
+};
+
 
     const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
         if (event.key === 'Enter') {
