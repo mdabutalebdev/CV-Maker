@@ -3,6 +3,10 @@
 import React from 'react';
 import { useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
+import { IoIosCall } from "react-icons/io";
+import { CgMail } from "react-icons/cg";
+import { FaLinkedinIn } from "react-icons/fa";
+import { IoMdGlobe } from "react-icons/io";
 
 const ReviewAndDownload: React.FC = () => {
   const formData = useSelector((state: RootState) => state.form);
@@ -24,7 +28,7 @@ const ReviewAndDownload: React.FC = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto">
+    <div id="resume-content" className="max-w-4xl mx-auto">
       <div className="mb-8">
         <h1 className="text-4xl font-bold text-heading mb-2">
           Review Your AI-Generated Resume
@@ -47,24 +51,27 @@ const ReviewAndDownload: React.FC = () => {
           </p>
           <div className="flex flex-wrap gap-4 text-sm text-secondary">
             <div className="flex items-center">
-              <span className="mr-1">📱</span>
+              <span className="mr-1"><IoIosCall />
+</span>
               {formData.personalInfo.phoneNumber}
             </div>
             <div className="flex items-center">
-              <span className="mr-1">✉️</span>
+              <span className="mr-1"><CgMail />
+</span>
               {formData.personalInfo.emailAddress}
             </div>
             {(formData.contactInfo.linkedinProfile || formData.contactInfo.portfolio) && (
               <>
                 {formData.contactInfo.linkedinProfile && (
                   <a href={formData.contactInfo.linkedinProfile} className="text-blue-600 hover:underline flex items-center">
-                    <span className="mr-1">💼</span>
+                    <span className="mr-1 text-black"><FaLinkedinIn />
+</span>
                     LinkedIn
                   </a>
                 )}
                 {formData.contactInfo.portfolio && (
                   <a href={formData.contactInfo.portfolio} className="text-blue-600 hover:underline flex items-center">
-                    <span className="mr-1">🌐</span>
+                    <span className="mr-1 text-black"><IoMdGlobe /> </span>
                     Portfolio
                   </a>
                 )}

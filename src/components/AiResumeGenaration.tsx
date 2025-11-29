@@ -48,11 +48,11 @@ const AiResumeGenaration: React.FC = () => {
 
   return (
     <div className="flex flex-col space-y-6 py-10">
-      <h1 className="text-4xl font-bold text-heading">AI Resume Magic</h1>
+      <h3 className="text-4xl font-bold text-heading">AI Resume Magic</h3>
       <p className="font-normal text-[14px] text-secondary">Now, lets turn all the information youve provided into a professional resume! Our AI will generate a polished version that showcases your strengths and matches industry standards.</p>
-
+       <h3 className="font-medium text-base">AI is refining your resume...</h3>
       {/* Progress Bar */}
-      <div className="w-full max-w-xl bg-gray-200 h-3 rounded overflow-hidden">
+      <div className="w-full max-w-2xl bg-gray-200 h-3 rounded overflow-hidden">
         <div
           className="bg-primary h-full rounded transition-all duration-100 ease-linear"
           style={{ width: `${progress}%` }}
