@@ -21,7 +21,7 @@ const FormInput: React.FC<{
   placeholder 
 }) => (
   <div className="flex flex-col w-full">
-    <label htmlFor={name} className="text-sm font-medium  text-secondary-800 mb-1">
+    <label htmlFor={name} className="text-sm font-medium text-gray-800 mb-1">
       {label}
     </label>
     <input
@@ -43,7 +43,7 @@ const DateInput: React.FC<{
   onChange?: (field: string, value: string) => void;
 }> = ({ label, name, value, onChange }) => (
   <div className="flex flex-col w-full">
-    <label htmlFor={name} className="text-sm font-medium  text-secondary-800 mb-1">
+    <label htmlFor={name} className="text-sm font-medium text-gray-800 mb-1">
       {label}
     </label>
     <div className="relative">
@@ -55,7 +55,7 @@ const DateInput: React.FC<{
         onChange={(e) => onChange && onChange(name, e.target.value)}
         className="w-full border border-gray-300 font-normal text-secondary rounded-lg h-10 px-3 focus:outline-none focus:border-gray-500 appearance-none text-[12px]" 
       />
-      <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none  text-secondary-700">
+      <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none text-gray-700">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
           <path d="M6.5 7a.5.5 0 0 0-.5.5v2a.5.5 0 0 0 .5.5h2a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 0-.5-.5h-2z"/>
           <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
@@ -74,7 +74,7 @@ const TextArea: React.FC<{
   placeholder?: string;
 }> = ({ label, name, value, onChange, placeholder }) => (
   <div className="flex flex-col w-full">
-    <label htmlFor={name} className="text-sm font-medium  text-secondary-800 mb-1">
+    <label htmlFor={name} className="text-sm font-medium text-gray-800 mb-1">
       {label}
     </label>
     <textarea
@@ -90,12 +90,12 @@ const TextArea: React.FC<{
 );
 
 const SkillTag: React.FC<{ children: React.ReactNode; onRemove: () => void }> = ({ children, onRemove }) => (
-    <span className="bg-gray-100  text-secondary-800 text-sm font-medium px-3 py-1 rounded-full mr-2 mb-1 flex items-center">
+    <span className="bg-gray-100 text-gray-800 text-sm font-medium px-3 py-1 rounded-full mr-2 mb-1 flex items-center">
       {children}
       <button 
         type="button" 
         onClick={onRemove} 
-        className="ml-2  text-secondary-500 hover: text-secondary-900 focus:outline-none text-[12px] font-normal text-secondary"
+        className="ml-2  hover:text-gray-900 focus:outline-none text-[12px] font-normal text-secondary"
         aria-label={`Remove skill ${children}`}
       >
         <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -204,17 +204,17 @@ const ExperienceFormSection: React.FC<ExperienceFormSectionProps> = ({
                 placeholder="An experienced marketing professional with over 5 years of expertise in digital marketing, specializing in SEO, social media strategies, and content creation."
             />
 
-            {/* Achievements & Skills  */}
+            {/* Achievements & Skills (Two Columns) */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
                 
-                {/* Achievements  */}
+                {/* Achievements (File Upload) */}
                 <div className="flex flex-col w-full">
-                    <label className="text-sm font-medium  text-secondary-800 mb-1">
+                    <label className="text-sm font-medium text-gray-800 mb-1">
                         Achievements
                     </label>
                     <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center h-full flex flex-col items-center justify-center">
-                        <p className=" text-secondary-500 mb-2">Drop file or browse</p>
-                        <p className="text-xs  text-secondary-400 mb-3">Format: jpg, .png & Max file size: 25 MB</p>
+                        <p className="text-gray-500 mb-2">Drop file or browse</p>
+                        <p className="text-xs text-gray-400 mb-3">Format: jpg, .png & Max file size: 25 MB</p>
                         
                         <input 
                             type="file" 
@@ -227,7 +227,7 @@ const ExperienceFormSection: React.FC<ExperienceFormSectionProps> = ({
                         <button 
                             type="button"
                             onClick={handleBrowseFiles} 
-                            className="bg-gray-100  text-secondary-700 text-sm font-medium py-1.5 px-4 rounded-lg hover:bg-gray-200 transition"
+                            className="bg-gray-100 text-gray-700 text-sm font-medium py-1.5 px-4 rounded-lg hover:bg-gray-200 transition"
                         >
                             Browse Files
                         </button>
@@ -236,7 +236,7 @@ const ExperienceFormSection: React.FC<ExperienceFormSectionProps> = ({
 
                 {/* Skills */}
                 <div className="flex flex-col w-full">
-                    <label className="text-sm font-medium  text-secondary-800 mb-1">
+                    <label className="text-sm font-medium text-gray-800 mb-1">
                         Skills
                     </label>
                     <div className="w-full border border-gray-300 rounded-lg p-3 min-h-[100px] focus-within:border-gray-500 flex flex-wrap items-start content-start">
@@ -270,8 +270,8 @@ const SkillAndExperiance: React.FC = () => {
     };
 
     const handleAddExperience = () => {
-      
-        
+        // এখন কিছুই করবে না - শুধু ১টা experience থাকবে
+        console.log("Only one experience is allowed");
     };
 
     return (
@@ -283,7 +283,7 @@ const SkillAndExperiance: React.FC = () => {
                 </h1>
                 <button 
                     onClick={handleSkip} 
-                    className="flex items-center text-sm font-medium  text-secondary-600 bg-gray-50 py-1 px-3 rounded-full hover:bg-gray-100"
+                    className="flex items-center text-sm font-medium text-gray-600 bg-gray-50 py-1 px-3 rounded-full hover:bg-gray-100"
                 >
                     Skip 
                     <svg className="ml-1 w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -296,7 +296,7 @@ const SkillAndExperiance: React.FC = () => {
                 Highlight your work experience and skills. The more detail you provide, the better the AI can tailor your resume to match job opportunities.
             </p>
 
-            {/*  first experience show  */}
+            {/* শুধু প্রথম experience টা show করবে */}
             {experiences.slice(0, 1).map((experience) => (
                 <ExperienceFormSection 
                     key={experience.id}
@@ -304,7 +304,7 @@ const SkillAndExperiance: React.FC = () => {
                 />
             ))}
 
-            {/* "Add Another Work Experience */}
+            {/* "Add Another Work Experience" বাটন hide করেছি */}
             <div className="pt-6">
                 <button 
                     onClick={handleAddExperience}

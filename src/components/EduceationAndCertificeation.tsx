@@ -142,7 +142,7 @@ const FileUploadArea: React.FC = () => {
 
                 {fileName ? (
                     <div className="text-center">
-                        <p className=" text-secondary-900 font-medium mb-1 truncate max-w-xs">{fileName}</p>
+                        <p className=" text-secondary font-medium mb-1 truncate max-w-xs">{fileName}</p>
                         <p className="text-xs text-green-600 mb-3">File selected successfully.</p>
                         <button 
                             type="button" 

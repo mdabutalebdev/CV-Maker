@@ -109,7 +109,7 @@ const ContactInformation: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <div className="mb-8">
-        <h1 className="text-4xl font-bold  text-secondary-900 mb-2">
+        <h1 className="text-4xl font-bold  text-secondary mb-2">
           Your Contact Information
         </h1>
         <p className=" text-secondary-600 text-base">
