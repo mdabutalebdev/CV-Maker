@@ -7,10 +7,21 @@ import { RootState } from "@/redux/store";
 const ReviewAndDownload: React.FC = () => {
   const formData = useSelector((state: RootState) => state.form);
 
-  // Corrected safe check for skills array
+  // Safe check for skills array
   const hasSkills = Array.isArray(formData.skills) && formData.skills.some(skill => 
     skill && skill.items && Array.isArray(skill.items) && skill.items.length > 0
   );
+
+  // Get job title - priority: careerInfo.jobTitle > experiences[0].jobTitle > default
+  const getJobTitle = () => {
+    if (formData.careerInfo.jobTitle) {
+      return formData.careerInfo.jobTitle;
+    }
+    if (formData.experiences.length > 0 && formData.experiences[0].jobTitle) {
+      return formData.experiences[0].jobTitle;
+    }
+    return "UX/UI Designer";
+  };
 
   return (
     <div className="max-w-4xl mx-auto">
@@ -31,7 +42,9 @@ const ReviewAndDownload: React.FC = () => {
           <h1 className="text-3xl font-bold text-gray-900 mb-2">
             {formData.personalInfo.firstName} {formData.personalInfo.lastName}
           </h1>
-          <p className="text-lg text-secondary mb-4">UX/UI Designer</p>
+          <p className="text-lg text-secondary mb-4">
+            {getJobTitle()}
+          </p>
           <div className="flex flex-wrap gap-4 text-sm text-secondary">
             <div className="flex items-center">
               <span className="mr-1">📱</span>
@@ -89,25 +102,6 @@ const ReviewAndDownload: React.FC = () => {
                     </span>
                   )
                 ))
-              ))}
-            </div>
-          </div>
-        )}
-
-        {/* Alternative Skills Display if the above doesn't work */}
-        {!hasSkills && formData.skills && Array.isArray(formData.skills) && formData.skills.length > 0 && (
-          <div className="mb-6">
-            <h2 className="text-xl font-semibold text-gray-900 mb-3 border-b border-gray-200 pb-2">
-              SKILLS
-            </h2>
-            <div className="flex flex-wrap gap-3">
-              {formData.skills.map((skill, index) => (
-                <span 
-                  key={index} 
-                  className="bg-gray-100 text-gray-700 px-3 py-2 rounded-full text-sm border border-gray-200"
-                >
-                  {typeof skill === 'string' ? skill : skill?.category || skill?.items?.[0] || 'Skill'}
-                </span>
               ))}
             </div>
           </div>

@@ -53,7 +53,7 @@ export interface Experience {
   endDate: string;
   description: string;
   skills: string[];
-  achievements: File[];
+  achievements: string[]; // Changed from File[] to string[]
 }
 
 // --- Career Info Interface ---
@@ -110,7 +110,7 @@ const initialState: FormState = {
       description:
         "An experienced marketing professional with over 5 years of expertise in digital marketing, specializing in SEO, social media strategies, and content creation.",
       skills: ["UI Designer", "UX Designer", "Figma"],
-      achievements: []
+      achievements: [] // Now string array instead of File[]
     }
   ],
   careerInfo: {
@@ -217,7 +217,7 @@ export const formSlice = createSlice({
       action: PayloadAction<{
         id: number;
         field: keyof Experience;
-        value: string | string[] | File[];
+        value: string | string[];
       }>
     ) => {
       const exp = state.experiences.find(e => e.id === action.payload.id);
@@ -227,7 +227,7 @@ export const formSlice = createSlice({
       if (field === "skills" && Array.isArray(value)) {
         exp.skills = value as string[];
       } else if (field === "achievements" && Array.isArray(value)) {
-        exp.achievements = value as File[];
+        exp.achievements = value as string[]; // Now string array
       } else {
         (exp[field] as string) = value as string;
       }
@@ -245,7 +245,7 @@ export const formSlice = createSlice({
         endDate: "",
         description: "",
         skills: [],
-        achievements: []
+        achievements: [] // Now string array
       });
     },
 
@@ -413,6 +413,21 @@ export const formSlice = createSlice({
       if (state.projects.length > 1) {
         state.projects = state.projects.filter(project => project.id !== action.payload);
       }
+    },
+
+    // Clean up non-serializable values
+    cleanupFormState: (state) => {
+      // Clean up experiences achievements
+      state.experiences = state.experiences.map(exp => ({
+        ...exp,
+        achievements: Array.isArray(exp.achievements) 
+          ? exp.achievements.filter(achievement => 
+              achievement !== null && 
+              achievement !== undefined && 
+              !(typeof achievement === 'object' && Object.keys(achievement).length === 0)
+            )
+          : []
+      }));
     }
   }
 });
@@ -443,7 +458,8 @@ export const {
   setProjects,
   updateProjectField,
   addProject,
-  deleteProject
+  deleteProject,
+  cleanupFormState
 } = formSlice.actions;
 
 export default formSlice.reducer;

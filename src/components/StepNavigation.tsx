@@ -1,4 +1,3 @@
-// /components/StepNavigation.tsx
 "use client";
 
 import { usePathname, useRouter } from "next/navigation";
@@ -11,9 +10,8 @@ export default function StepNavigation() {
   const router = useRouter();
   const currentStep = parseInt(pathname.split("/").pop() || "1");
 
-const triggerStart = useProgressStore((state) => state.triggerStart);
-const resetProgress = useProgressStore((state) => state.resetProgress);
-
+  const triggerStart = useProgressStore((state) => state.triggerStart);
+  const resetProgress = useProgressStore((state) => state.resetProgress);
 
   let nextButtonText = "Next";
   let showNextButton = true;
@@ -28,10 +26,9 @@ const resetProgress = useProgressStore((state) => state.resetProgress);
     if (currentStep > 1) {
       router.push(`/steps/${currentStep - 1}`);
     } else if (currentStep === 1) {
+      // Step 1-এ Back button এ ক্লিক করলে home page-এ যাবে
       router.push("/");
     }
-
-    // Back এ গেলে progress reset হবে
     resetProgress();
   };
 
@@ -40,41 +37,55 @@ const resetProgress = useProgressStore((state) => state.resetProgress);
       router.push(`/steps/${currentStep + 1}`);
     } else if (currentStep === 6) {
       console.log("Generating Resume...");
-
-      // 🔥 Progress Start
       triggerStart();
-
-      // Step 7 এ push হবে AiResumeGenaration এর useEffect থেকে
-      // সরাসরি router.push() remove করা
     }
   };
 
+  // Step 6-এর জন্য আলাদা লেআউট
+  if (currentStep === 6) {
+    return (
+      <div className="flex justify-center container mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+        <Button
+          onClick={handleNext}
+          className="flex items-center justify-center gap-2 px-40 bg-primary text-white"
+        >
+          {nextButtonText}
+          <FaArrowRightLong />
+        </Button>
+      </div>
+    );
+  }
+
+  // অন্যান্য স্টেপের জন্য সাধারণ লেআউট
   return (
     <div className="flex justify-between container mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-      {currentStep < 6 && (
+      {/* Back Button - সব স্টেপেই দেখাবে (Step 1-এও) */}
+      {(currentStep >= 1 && currentStep < 7) && (
         <Button
           onClick={handleBack}
-          className="bg-gray-600! px-40 text-white flex items-center gap-2"
+          className="bg-[#9A9A9A]! px-40 text-white flex items-center gap-2"
         >
           <FaArrowLeftLong />
-          Back
+          {currentStep === 1 ? "Home" : "Back"}
         </Button>
       )}
 
+      {/* Next Button */}
       {showNextButton && currentStep < 7 && (
         <Button
           onClick={handleNext}
-          className="flex items-center justify-center gap-2 px-40"
+          className="flex items-center justify-center gap-2 px-40 bg-primary text-white"
         >
           {nextButtonText}
           <FaArrowRightLong />
         </Button>
       )}
 
+      {/* Step 7 Buttons */}
       {currentStep === 7 && (
-        <div className="flex items-center gap-10">
-          <Button className="bg-secondary px-25">Download Resume</Button>
-          <Button className="px-25">Find Your Favorite Job</Button>
+        <div className="flex items-center gap-10 justify-center w-full">
+          <Button className="bg-secondary px-25 text-white">Download Resume</Button>
+          <Button className="bg-primary px-25 text-white">Find Your Favorite Job</Button>
         </div>
       )}
     </div>

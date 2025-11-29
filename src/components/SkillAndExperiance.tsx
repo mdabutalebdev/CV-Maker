@@ -204,10 +204,10 @@ const ExperienceFormSection: React.FC<ExperienceFormSectionProps> = ({
                 placeholder="An experienced marketing professional with over 5 years of expertise in digital marketing, specializing in SEO, social media strategies, and content creation."
             />
 
-            {/* Achievements & Skills (Two Columns) */}
+            {/* Achievements & Skills  */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
                 
-                {/* Achievements (File Upload) */}
+                {/* Achievements  */}
                 <div className="flex flex-col w-full">
                     <label className="text-sm font-medium text-gray-800 mb-1">
                         Achievements
@@ -270,8 +270,8 @@ const SkillAndExperiance: React.FC = () => {
     };
 
     const handleAddExperience = () => {
-        // এখন কিছুই করবে না - শুধু ১টা experience থাকবে
-        console.log("Only one experience is allowed");
+      
+        
     };
 
     return (
@@ -296,7 +296,7 @@ const SkillAndExperiance: React.FC = () => {
                 Highlight your work experience and skills. The more detail you provide, the better the AI can tailor your resume to match job opportunities.
             </p>
 
-            {/* শুধু প্রথম experience টা show করবে */}
+            {/*  first experience show  */}
             {experiences.slice(0, 1).map((experience) => (
                 <ExperienceFormSection 
                     key={experience.id}
@@ -304,7 +304,7 @@ const SkillAndExperiance: React.FC = () => {
                 />
             ))}
 
-            {/* "Add Another Work Experience" বাটন hide করেছি */}
+            {/* "Add Another Work Experience */}
             <div className="pt-6">
                 <button 
                     onClick={handleAddExperience}
