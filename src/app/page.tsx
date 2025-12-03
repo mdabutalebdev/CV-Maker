@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="mt-26 py-10">
+    <div className="md:mt-26 mt-10 py-10">
      <div className="container mx-auto px-20 gap-10  flex  items-center justify-center">
        <div className="">
         <Image
