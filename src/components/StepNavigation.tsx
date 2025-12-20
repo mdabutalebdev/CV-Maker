@@ -271,7 +271,7 @@ const handleDownloadPDF = async () => {
       {(currentStep >= 1 && currentStep < 7) && (
         <Button
           onClick={handleBack}
-          className="bg-[#9A9A9A]! px-40 text-white flex items-center gap-2"
+          className="bg-[#9A9A9A]! md:px-40 text-white flex items-center gap-2"
         >
           <FaArrowLeftLong />
           {currentStep === 1 ? "Home" : "Back"}
@@ -282,7 +282,7 @@ const handleDownloadPDF = async () => {
       {showNextButton && currentStep < 7 && (
         <Button
           onClick={handleNext}
-          className="flex items-center justify-center gap-2 px-40 bg-primary text-white"
+          className="flex items-center justify-center gap-2 md:px-40 bg-primary text-white"
         >
           {nextButtonText}
           <FaArrowRightLong />
@@ -291,16 +291,16 @@ const handleDownloadPDF = async () => {
 
       {/* Step 7 Buttons */}
       {currentStep === 7 && (
-        <div className="flex items-center gap-10 justify-center w-full">
+        <div className="md:flex block items-center gap-10 md:justify-center w-full">
           <Button 
             onClick={handleDownloadPDF}
-            className="bg-secondary px-25 text-white"
+            className="bg-secondary md:px-25 text-white"
           >
             Download Resume PDF
           </Button>
           <Button 
             onClick={handleFindJob}
-            className="bg-primary px-25 text-white"
+            className="bg-primary md:px-25 max-sm:mt-5 text-white"
           >
             Find Your Favorite Job
           </Button>

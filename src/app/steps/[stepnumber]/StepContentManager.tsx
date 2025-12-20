@@ -14,7 +14,7 @@ import ReviewAndDownload from "@/components/ReviewAndDownload";
 export default function StepContentManager() {
     const pathname = usePathname();
 
-    if (!pathname) return null; // ✅ safeguard
+    if (!pathname) return null;  
 
     const totalSteps = 7;
     const pathParts = pathname.split('/');
